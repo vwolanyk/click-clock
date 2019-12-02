@@ -1,1 +1,18 @@
-<h1>HiTeacher!</h1>
+<h1>Hello <%= current_user.user_name.titleize %>!</h1>
+
+<h3>The current time is <%= Time.zone.now.getlocal.strftime("%I:%M%p") %></h3>
+
+<% if @current_open_log.length > 0 %>
+  <%= @current_open_log.first.formatted_start_time %>
+<% end %>
+
+<% if @current_day_logs.length > 0 %>
+<h3>Today's Logs</h3>
+  <% @current_day_logs.each do |log| %>
+    <p>Start Time: <%= log.formatted_start_time%>  End TIme: <%= log.formatted_end_time%></p>
+    <% end %>
+<% end %>
+
+
+
+  <%= link_to "SEE ALL WORK LOGS", work_logs_path(current_user.id) %>
