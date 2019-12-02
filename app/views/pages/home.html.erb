@@ -4,7 +4,8 @@
 
 <div class="card" style="width: 75%; margin: auto; padding: 5%;">
   <div class="card-header" style="text-align: center">
-    <h3>The current time is <%= Time.zone.now.getlocal.strftime("%I:%M%p") %></h3>
+    <% Time.zone = 'Eastern Time (US & Canada)'%>
+    <h3>The current time is <%= Time.zone.now.strftime("%I:%M%p") %></h3>
   </div>
   <br>
   <br>
