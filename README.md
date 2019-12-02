@@ -40,6 +40,8 @@ Run Server Locally
 
 `rails s`
 
+Navigate to: [http://localhost:3000/](http://localhost:3000/)
+
 ### Testing
 
 RSpec testing framework [rspec docs](https://rspec.info/documentation/)
