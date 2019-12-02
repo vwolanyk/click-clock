@@ -49,17 +49,10 @@ RSpec.describe WorkLogsController, type: :controller do
     end
   end
 
-  describe "GET #show" do
-    it "returns a success response" do
-      work_log = WorkLog.create! valid_attributes
-      get :show, params: {id: work_log.to_param}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
   describe "GET #new" do
     it "returns a success response" do
-      get :new, params: {}, session: valid_session
+      user = User.create!(email: "my@me.com", user_name: "me", password: 123456)
+      get new_user_work_log_path(user_id: user.id), session: valid_session
       expect(response).to be_successful
     end
   end
