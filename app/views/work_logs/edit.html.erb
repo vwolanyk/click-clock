@@ -1,6 +1,5 @@
 <h1>Editing Work Log</h1>
 
-<%= render 'form', work_log: @work_log %>
+<%= render 'edit_form', work_log: @work_log %>
 
-<%= link_to 'Show', @work_log %> |
-<%= link_to 'Back', work_logs_path %>
+<%= link_to 'Back', user_work_logs_path(user: current_user) %>

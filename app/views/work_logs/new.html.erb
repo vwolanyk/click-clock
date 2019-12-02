@@ -1,5 +1,5 @@
-<h1>New Work Log</h1>
+<h1>Create a New Work Log</h1>
 
 <%= render 'form', work_log: @work_log %>
 
-<%= link_to 'Back', work_logs_path %>
+<%= link_to 'Back', user_work_logs_path(user: current_user) %>

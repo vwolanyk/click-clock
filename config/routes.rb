@@ -4,10 +4,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
   end
-  resources :users, only: :update do
-    member do
-      resources :work_logs
-    end
+  resources :users do
+    resources :work_logs
   end
   # http://guides.rubyonrails.org/routing.html
 end
