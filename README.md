@@ -12,6 +12,8 @@ What it does/includes:
 - users must provide an email and username on sign up
 - work logs can only span a range within a given day (_ie cannot have start time on one day and end time next day_)
 - Forgot to "log out"? Home page shows user any open logs
+- home page shows user's current "open log" (only a start_time)
+- work logs are ordered by start_time
 
 ## The Stack
 
