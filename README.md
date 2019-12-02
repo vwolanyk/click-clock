@@ -22,7 +22,7 @@ DB: Postgres
 
 Helper Gems - Devise(user auth), Simple_Form, Bootstrap, RSpec
 
-See Wiki for ERD
+See Wiki for [ERD](https://github.com/vwolanyk/click-clock/wiki/ERD)
 
 ## To Use:
 
