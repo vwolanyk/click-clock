@@ -22,6 +22,8 @@ DB: Postgres
 
 Helper Gems - Devise(user auth), Simple_Form, Bootstrap, RSpec
 
+See Wiki for ERD
+
 ## To Use:
 
 `git clone https://github.com/vwolanyk/click-clock.git`
