@@ -22,8 +22,8 @@
         <td><%= work_log.formatted_end_time %></td>
         <td><%= work_log.user.user_name %></td>
         <td><%= work_log.duration_in_hours %></td>
-        <td><%= link_to 'Edit', edit_user_work_log_path(id: work_log.id, user_id: current_user.id) %></td>
-        <td><%= link_to 'Destroy', user_work_log_url(id: work_log.id, user_id: current_user.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_user_work_log_path(id: work_log.id, user_id: current_user.id),  class: "btn btn-success btn-sm" %></td>
+        <td><%= link_to 'Destroy', user_work_log_url(id: work_log.id, user_id: current_user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
