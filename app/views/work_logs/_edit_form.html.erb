@@ -11,12 +11,13 @@
 <% end %>
 
 <div class="" style="width: 75%; padding: 5%;">
+  <% Time.zone = 'Eastern Time (US & Canada)'%>
   <%= simple_form_for(@work_log , url: user_work_log_path(@work_log, user_id: work_log.user_id)) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs">
-      <%= f.input :start_time, label: "LOG IN", default: Time.zone.now.getlocal %>
+      <%= f.input :start_time, label: "LOG IN", default: Time.zone.now %>
       <%= f.input :end_time, label: "LOG OUT", include_blank: true %>
     </div>
 
