@@ -79,13 +79,13 @@ class WorkLogsController < ApplicationController
     def parsed_start_time
       return false unless params[:work_log]['log_in_time(4i)'] != "" && params[:work_log]['log_in_time(5i)'] != ""
       time = "#{ params[:work_log]['log_in_time(4i)']}:#{params[:work_log]['log_in_time(5i)']}"
-      Time.strptime("#{parsed_date}:#{time}", '%d/%m/%Y:%H:%M')
+      Time.strptime("#{parsed_date}:#{time}", '%d/%m/%Y:%H:%M').utc
     end
 
     def parsed_end_time
       return false unless params[:work_log]['log_out_time(4i)'] != "" && params[:work_log]['log_out_time(5i)'] != ""
       time = "#{ params[:work_log]['log_out_time(4i)']}:#{params[:work_log]['log_out_time(5i)']}"
-      Time.strptime("#{parsed_date}:#{time}", '%d/%m/%Y:%H:%M')
+      Time.strptime("#{parsed_date}:#{time}", '%d/%m/%Y:%H:%M').utc
     end
 
     def parsed_date
