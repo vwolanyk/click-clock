@@ -17,7 +17,7 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs">
-      <%= f.input :date, as: :date, label: "DATE", default: Date.today %>
+      <%= f.input :date, as: :date, label: "DATE", default: Time.zone.today %>
       <%= f.input :log_in_time, as: :time, label: "Start Time"%>
       <%= f.input :log_out_time, as: :time, label: "End Time", include_blank: true %>
     </div>
