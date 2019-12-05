@@ -20,9 +20,8 @@ class WorkLogsController < ApplicationController
   # POST /work_logs
   # POST /work_logs.json
   def create
-    @work_log = WorkLog.new(work_log_params)
+    @work_log = WorkLog.new(parsed_params)
     @work_log.user = current_user
-
     respond_to do |format|
       if @work_log.save
         format.html { redirect_to root_path, notice: 'Work log was successfully created.' }
@@ -38,7 +37,7 @@ class WorkLogsController < ApplicationController
   # PATCH/PUT /work_logs/1.json
   def update
     respond_to do |format|
-      if @work_log.update(work_log_params)
+      if @work_log.update(parsed_params)
         format.html { redirect_to   root_path, notice: 'Work log was successfully updated.' }
         format.json { render :show, status: :ok, location: @work_log }
       else
@@ -70,7 +69,32 @@ class WorkLogsController < ApplicationController
       redirect_to root_path
     end
 
+    def parsed_params
+      {
+        start_time: parsed_start_time,
+        end_time: parsed_end_time
+      }
+    end
+
+    def parsed_start_time
+      return false unless params[:work_log]['log_in_time(4i)'] != "" && params[:work_log]['log_in_time(5i)'] != ""
+      time = "#{ params[:work_log]['log_in_time(4i)']}:#{params[:work_log]['log_in_time(5i)']}"
+      Time.strptime("#{parsed_date}:#{time}", '%d/%m/%Y:%H:%M')
+    end
+
+    def parsed_end_time
+      return false unless params[:work_log]['log_out_time(4i)'] != "" && params[:work_log]['log_out_time(5i)'] != ""
+      time = "#{ params[:work_log]['log_out_time(4i)']}:#{params[:work_log]['log_out_time(5i)']}"
+      Time.strptime("#{parsed_date}:#{time}", '%d/%m/%Y:%H:%M')
+    end
+
+    def parsed_date
+      "#{params[:work_log]['date(3i)']}/#{params[:work_log]['date(2i)']}/#{params[:work_log]['date(1i)']}"
+    end
+
     def work_log_params
-      params.require(:work_log).permit(:start_time, :end_time, :user_id)
+      params.require(:work_log).permit(
+      :date, :log_in_time, :log_out_time,:user_id
+      )
     end
 end

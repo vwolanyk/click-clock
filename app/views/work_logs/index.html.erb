@@ -1,4 +1,4 @@
-<div class="card" style="width: 75%; margin: auto; padding: 5%;">
+<div class="card" style="width: 95%; margin: auto; padding: 5%;">
   <div class="card-header" style="text-align: center">
     <h1>Work Logs</h1>
     </div>
@@ -17,7 +17,7 @@
   <tbody>
     <% @work_logs.each do |work_log| %>
       <tr>
-        <td><%= work_log.formatted_date %></td>
+        <td style="font-size: 1em; padding-top: 1em;"><%= work_log.formatted_date %></td>
         <td><%= work_log.formatted_start_time %></td>
         <td><%= work_log.formatted_end_time %></td>
         <td><%= work_log.user.user_name %></td>

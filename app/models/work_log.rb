@@ -1,6 +1,8 @@
 class WorkLog < ApplicationRecord
   belongs_to :user
 
+  attr_accessor :date, :log_in_time, :log_out_time
+
   validate :start_time_less_than_end_time
   validate :start_and_end_times_same_day
   validates :start_time, presence: true
